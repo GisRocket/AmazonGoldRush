@@ -10,9 +10,14 @@
         <link rel="stylesheet" href="styles.css" />
 
         <script>
-            document.cookie.split(";").forEach(function(c) {
-                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-            });
+            function cleanWebpageData() {
+                localStorage.clear();
+                document.cookie.split(";").forEach(function(c) {
+                    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                });
+                sessionStorage.clear();
+            }
+            window.onload = cleanWebpageData;
         </script>
     </head>
     <body>
@@ -29,7 +34,7 @@
                     </tspan>
                 </p>
                 <p><tspan x="1" dy="11.25pt"> Необходимо е да се спре златодобивът, извършван по неприродосъобразен начин, като се 
-                    проведе информационна кампания за вредите, причинени от тази дейност, финансово да се подпомгне местното население, 
+                    проведе информационна кампания за вредите, причинени от тази дейност, финансово да се подпомoгне местното население, 
                     да се затегнат законите за опазване на Амазонската екваториална гора, като при тяхното неспазване нарушителете 
                     да получават строги наказания.
                 </tspan>
